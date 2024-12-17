@@ -13,11 +13,16 @@ function TodoWrapper() {
         console.log(todos)
     }
 
+    const toggleComplete = id => {
+        setTodos(todos.map(todo => todo.id === id ? {...todo, completed: !todo.completed} : todo ))
+    }
+
     return(
         <div className="todoWrapper">
+            <h1>Todo List!</h1>
         <AddTodo addNewTodo={addNewTodo}/>
         {todos.map((todo, index) => (
-         <Todo task ={todo} key={index}/>
+         <Todo task ={todo} key={index} toggleComplete={toggleComplete}/>
         ) )}
         </div>  
 
