@@ -2,6 +2,7 @@ import { useState } from "react"
 import AddTodo from "./AddTodo"
 import { v4 as uuidv4 } from 'uuid';
 import Todo from "./Todo";
+import EditTodo from "./EditTodo";
 
 
 function TodoWrapper() {
@@ -17,16 +18,29 @@ function TodoWrapper() {
         setTodos(todos.map(todo => todo.id === id ? {...todo, completed: !todo.completed} : todo ))
     }
 
-    const deleteTodo = id => {
+    const deleteTodo  = id => {
         setTodos(todos.filter(todo => todo.id !== id))
     }
+
+    const reDoTodo = id => {
+        setTodos(todos.map(todo => todo.id === id ? {...todo, isEditing: !todo.isEditing} : todo))
+    }
+
+    const editTask = (task, id) => {
+        setTodos(todos.map(todo => todo.id === id ? {...todo, task, isEditing: !todo.isEditing} : todo))
+    }
+
 
     return(
         <div className="todoWrapper">
             <h1>Todo List!</h1>
         <AddTodo addNewTodo={addNewTodo}/>
         {todos.map((todo, index) => (
-         <Todo task ={todo} key={index} toggleComplete={toggleComplete} deleteTodo = {deleteTodo}/>
+            todo.isEditing  ? (<EditTodo key={index} task={todo} editTask={editTask} />)
+            :
+         <Todo task ={todo} key={index} toggleComplete={toggleComplete} 
+             deleteTodo = {deleteTodo}  reDoTodo={reDoTodo} 
+             editTask ={editTask}/>
         ) )}
         </div>  
 
