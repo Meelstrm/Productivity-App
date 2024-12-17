@@ -18,6 +18,77 @@
   filter: drop-shadow(0 0 2em #61dafbaa);
 }
 
+.todoWrapper {
+  background: #656569;
+  margin-top: 5rem;
+  padding: 2rem;
+  border-radius: 5px;
+}
+
+.addTodo {
+  width: 100%;
+  margin-bottom: 1rem;
+}
+
+.todoInput {
+  outline: none;
+  background: none;
+  border: 1px solid #eeebf5;
+  padding: 0.5rem 1rem;
+  margin-top: 1rem;
+  margin-bottom: 2rem;
+  width: 300px;
+  color: #fff;
+}
+
+.todoInput::placeholder {
+  color: #ffffff4d;
+}
+
+.newTodoBtn {
+  background: #020007;
+  color: #fff;
+  border: none;
+  padding: 0.55rem;
+  cursor: pointer;
+}
+
+.todoList {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #060607;
+  color: #fff;
+  padding: 0.75rem 1rem;
+  border-radius: 5px;
+  margin-bottom: 1rem;
+}
+
+.fa-trash {
+  margin-left: 0.75rem;
+}
+
+.incompleted {
+  color: #fff;
+  cursor: pointer;
+}
+
+.completed {
+  color: #d4cee6;
+  text-decoration: line-through;
+  cursor: pointer;
+}
+
+.edit-icon,
+.delete-icon {
+  cursor: pointer;
+}
+
+.todoList {
+  cursor: pointer
+  
+}
+
 @keyframes logo-spin {
   from {
     transform: rotate(0deg);
