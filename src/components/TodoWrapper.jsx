@@ -15,9 +15,10 @@ function TodoWrapper() {
         console.log(todos)
     }
 
-    const toggleComplete = id => {
-        setTodos(todos.map(todo => todo.id === id ? {...todo, completed: !todo.completed} : todo ))
-    }
+    const changeStatus = id => {
+        setTodos(todos.map(todo => todo.id === id ? {...todo, task: {...todo.task, status: todo.task.status === "Completed" ? "Not started yet" : "Completed"}} : todo ));
+    };
+    
 
     const deleteTodo  = id => {
         setTodos(todos.filter(todo => todo.id !== id))
@@ -39,7 +40,7 @@ function TodoWrapper() {
         {todos.map((todo, index) => (
             todo.isEditing  ? (<EditTodo key={index} task={todo} editTask={editTask} />)
             :
-         <Todo task ={todo} key={index} toggleComplete={toggleComplete} 
+         <Todo task ={todo} key={index} changeStatus={changeStatus}  
              deleteTodo = {deleteTodo}  reDoTodo={reDoTodo} 
              editTask ={editTask}/>
         ) )}
