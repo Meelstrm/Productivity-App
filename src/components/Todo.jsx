@@ -24,5 +24,5 @@ function Todo({task, deleteTodo, reDoTodo, changeStatus}) {
    </div>
     )
 }
-
+ 
 export default Todo 

@@ -19,7 +19,7 @@ function TodoWrapper() {
         setTodos(todos.map(todo => todo.id === id ? {...todo, task: {...todo.task, status: todo.task.status === "Completed" ? "Not started yet" : "Completed"}} : todo ));
     };
     
-
+ 
     const deleteTodo  = id => {
         setTodos(todos.filter(todo => todo.id !== id))
     }
