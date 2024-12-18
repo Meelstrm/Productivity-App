@@ -10,6 +10,7 @@ function TodoWrapper() {
     const [todos, setTodos] = useState([])
 
     const addNewTodo = todo => {
+        const {title, description, timeEstimate, category, deadline, status} = todo
         setTodos([...todos, {id: uuidv4(), task: todo, completed: false, isEditing: false}])
         console.log(todos)
     }
